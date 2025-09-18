@@ -1,37 +1,46 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    float movementDirection = 0.0f;
     private Rigidbody2D rb;
 
+    float directionMove = 0.0f;
+
     [Header("Movement Settings")]
-    [SerializeField]
-    float movementSpeed = 2.0f;
-    void FixedUpdate()
-    {
+    [SerializeField] float moveSpeed = 2.0f;
 
+    private GameInputActions playerControls;
+    private InputAction move;
+
+    private void Awake()
+    {
+        playerControls = new GameInputActions();
     }
 
-    void Awake()
-    {
-
-    }
-
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void OnEnable()
+    {
+        move = playerControls.Player.Move;
+        move.Enable();
+    }
+
+    private void OnDisable()
+    {
+        move.Disable();
+    }
+
     void Update()
     {
-        // Pega as entradas de movimento horizontal (teclas A/D ou setas esquerda/direita).
-        float horizontalInput = Input.GetAxis("Horizontal");
+        directionMove = move.ReadValue<float>();
+    }
 
-        // Cria um vetor de movimento baseado na entrada do teclado.
-        Vector2 movement = new Vector2(horizontalInput, 0);
-
-        // Define a velocidade do Rigidbody2D.
-        rb.linearVelocity = movement * movementSpeed;
+    void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector2(directionMove * moveSpeed, rb.linearVelocity.y);
     }
 }
