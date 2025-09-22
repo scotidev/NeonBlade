@@ -6,14 +6,25 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator playerAnimator;
 
+    private GameInputActions playerControls;
+    private InputAction move;
+    private InputAction jump;
+
     float directionMove = 0.0f;
     bool isFacingRight = true;
 
     [Header("Movement Settings")]
     [SerializeField] float moveSpeed = 4.0f;
 
-    private GameInputActions playerControls;
-    private InputAction move;
+    [Header("Jump Strength")]
+    [SerializeField] float jumpStrength = 5.0f;
+    private bool isJumping = false;
+
+    [Header("Ground Check")]
+    public LayerMask groundLayer;
+    [SerializeField] private Transform feetPos;
+    [SerializeField] private float feetRadius;
+    private bool isGrounded = true;
 
     private void Awake()
     {
@@ -30,6 +41,10 @@ public class Movement : MonoBehaviour
     {
         move = playerControls.Player.Move;
         move.Enable();
+
+        jump = playerControls.Player.Jump;
+        jump.Enable();
+        jump.performed += JumpPlayer;
     }
 
     private void OnDisable()
@@ -41,6 +56,16 @@ public class Movement : MonoBehaviour
     {
         directionMove = move.ReadValue<float>();
         FlipPlayer();
+        isGround();
+    }
+
+    private void JumpPlayer(InputAction.CallbackContext context)
+    {
+        if (isGrounded || !isJumping)
+        {
+            rb.linearVelocity = Vector2.up * jumpStrength;
+            isJumping = true;
+        }
     }
 
     private void FlipPlayer()
@@ -54,8 +79,20 @@ public class Movement : MonoBehaviour
         playerAnimator.SetBool("isWalking", directionMove != 0);
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(directionMove * moveSpeed, rb.linearVelocity.y);
+    }
+
+    public bool isGround()
+    {
+        isGrounded = false;
+
+        if (Physics2D.OverlapCircle(feetPos.position, feetRadius, groundLayer))
+        {
+            isGrounded = true;
+        }
+
+        return isGrounded;
     }
 }
