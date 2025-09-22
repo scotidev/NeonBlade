@@ -16,9 +16,11 @@ public class Movement : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] float moveSpeed = 4.0f;
 
-    [Header("Jump Strength")]
+    [Header("Jump Settings")]
     [SerializeField] float jumpStrength = 5.0f;
     private bool isJumping = false;
+    private float jumpTimeCounter;
+    public float jumpTime = 0.3f;
 
     [Header("Ground Check")]
     public LayerMask groundLayer;
@@ -29,12 +31,8 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         playerControls = new GameInputActions();
-    }
-
-    private void Start()
-    {
-        playerAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -50,21 +48,47 @@ public class Movement : MonoBehaviour
     private void OnDisable()
     {
         move.Disable();
+        jump.Disable();
     }
 
-    void Update()
+    private void Update()
     {
         directionMove = move.ReadValue<float>();
         FlipPlayer();
-        isGround();
+        CheckIsGrounded();
+        UpdateJump();
+        UpdateAnimator();
     }
 
     private void JumpPlayer(InputAction.CallbackContext context)
     {
-        if (isGrounded || !isJumping)
+        // Apenas permite o pulo se o jogador estiver no chão.
+        if (isGrounded)
         {
             rb.linearVelocity = Vector2.up * jumpStrength;
             isJumping = true;
+            jumpTimeCounter = jumpTime;
+        }
+    }
+
+    private void UpdateJump()
+    {
+        if (jump.IsPressed() && isJumping)
+        {
+            if (jumpTimeCounter > 0)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpStrength);
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                isJumping = false;
+            }
+        }
+
+        if (jump.WasReleasedThisFrame())
+        {
+            isJumping = false;
         }
     }
 
@@ -73,10 +97,8 @@ public class Movement : MonoBehaviour
         if ((isFacingRight && directionMove < 0f) || (!isFacingRight && directionMove > 0f))
         {
             isFacingRight = !isFacingRight;
-            GetComponent<SpriteRenderer>().flipX = !isFacingRight;
+            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
         }
-
-        playerAnimator.SetBool("isWalking", directionMove != 0);
     }
 
     private void FixedUpdate()
@@ -84,15 +106,14 @@ public class Movement : MonoBehaviour
         rb.linearVelocity = new Vector2(directionMove * moveSpeed, rb.linearVelocity.y);
     }
 
-    public bool isGround()
+    private void CheckIsGrounded()
     {
-        isGrounded = false;
+        isGrounded = Physics2D.OverlapCircle(feetPos.position, feetRadius, groundLayer);
+    }
 
-        if (Physics2D.OverlapCircle(feetPos.position, feetRadius, groundLayer))
-        {
-            isGrounded = true;
-        }
-
-        return isGrounded;
+    private void UpdateAnimator()
+    {
+        playerAnimator.SetBool("isWalking", directionMove != 0);
+        playerAnimator.SetBool("isJumping", !isGrounded);
     }
 }
