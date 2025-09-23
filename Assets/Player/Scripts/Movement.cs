@@ -35,6 +35,11 @@ public class Movement : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        GameManager.instance.setPlayerRef(gameObject);
+    }
+
     private void OnEnable()
     {
         move = playerControls.Player.Move;
