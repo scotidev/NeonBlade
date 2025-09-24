@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    private GameObject playerRef;
+    public GameObject playerRef;
 
     private void Awake()
     {
