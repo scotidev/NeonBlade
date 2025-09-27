@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 0d77f73d4d99df547aa70ffcb58767a5
+guid: eff13b04babefe640978fb93720719c6
 AssetOrigin:
   serializedVersion: 1
   productId: 93896
   packageName: Dragon Warrior (Free)
   packageVersion: 1.0
-  assetPath: Assets/Player/Assets/Sprites/die_004.png
+  assetPath: Assets/Dragon Warrior Files/Effects/iblast_03.png
   uploadId: 199679
 TextureImporter:
   internalIDToNameTable: []

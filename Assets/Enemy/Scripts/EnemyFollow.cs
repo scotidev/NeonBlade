@@ -9,10 +9,13 @@ public class EnemyFollow : MonoBehaviour
     public float speedMov = 2f;
     public float distanceTarget = 10.0f;
 
+    private EnemyProjectileAttack projectileAttack;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         enemyAnim = GetComponent<Animator>();
+        projectileAttack = GetComponent<EnemyProjectileAttack>();
     }
 
     void Update()
@@ -34,6 +37,10 @@ public class EnemyFollow : MonoBehaviour
             directionTarget = Vector2.zero;
             enemyAnim.SetBool("isRunning", false);
 
+            if (!projectileAttack.stateAttack)
+            {
+                projectileAttack.StartCoroutine("timerAttack");
+            }
         }
         else
         {

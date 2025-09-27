@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 8010427648692578059}
   - component: {fileID: 4763563288279265234}
   - component: {fileID: 5180774843426539789}
-  - component: {fileID: 2956114580091804956}
-  m_Layer: 0
+  - component: {fileID: -5746786880110524849}
+  - component: {fileID: 4129200173371863010}
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -33,7 +34,8 @@ Transform:
   m_LocalPosition: {x: 6.19, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8205838235789262599}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &5182750348553894250
@@ -107,7 +109,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ab81568b56f7d74418c616ea3a3d4a95, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -152,8 +154,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.028885365, y: -0.4910578}
-  m_Size: {x: 1.1530247, y: 1.4226264}
+  m_Offset: {x: -0.077237606, y: -0.4910578}
+  m_Size: {x: 0.94077873, y: 1.4226264}
   m_Direction: 0
 --- !u!114 &5180774843426539789
 MonoBehaviour:
@@ -169,7 +171,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMov: 2
   distanceTarget: 10
---- !u!95 &2956114580091804956
+--- !u!114 &-5746786880110524849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114659103579906750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63066d10a0406ef4f9648a2ad9f3ff4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableAttack: 0
+  stateAttack: 0
+  delayAttack: 1
+  spawnPoint: {fileID: 8205838235789262599}
+  projectile: {fileID: 1212177999214794180, guid: a8998ead754e819429a1334ffb38d191, type: 3}
+--- !u!95 &4129200173371863010
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -191,3 +210,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &8764110158035416999
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8205838235789262599}
+  m_Layer: 0
+  m_Name: SpawnProjectile
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8205838235789262599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8764110158035416999}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.71, y: -0.64, z: 1.0168533}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5541054262618758187}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

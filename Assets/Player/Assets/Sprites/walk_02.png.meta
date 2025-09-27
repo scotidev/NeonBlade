@@ -5,7 +5,7 @@ AssetOrigin:
   productId: 93896
   packageName: Dragon Warrior (Free)
   packageVersion: 1.0
-  assetPath: Assets/Dragon Warrior Files/Dragon Warrior PNG/walk_02.png
+  assetPath: Assets/Player/Assets/Sprites/walk_02.png
   uploadId: 199679
 TextureImporter:
   internalIDToNameTable: []
