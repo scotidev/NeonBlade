@@ -18,7 +18,14 @@ public class HitboxCollision : MonoBehaviour
     {
         if (other.gameObject.tag == targetTag)
         {
-            Destroy(other.gameObject);
+            if (other.GetComponent<Health>() != null)
+            {
+                other.GetComponent<Health>().TakeDamage();
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4763563288279265234}
   - component: {fileID: 5180774843426539789}
   - component: {fileID: -5746786880110524849}
+  - component: {fileID: 661294616936817921}
   - component: {fileID: 4129200173371863010}
   m_Layer: 7
   m_Name: Enemy
@@ -58,6 +59,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -79,6 +82,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -188,6 +192,20 @@ MonoBehaviour:
   delayAttack: 1
   spawnPoint: {fileID: 8205838235789262599}
   projectile: {fileID: 1212177999214794180, guid: a8998ead754e819429a1334ffb38d191, type: 3}
+--- !u!114 &661294616936817921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114659103579906750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98aa0928b2d05248b0ce2c931d0b026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  startingHealth: 2
+  currentHealth: 0
 --- !u!95 &4129200173371863010
 Animator:
   serializedVersion: 7
@@ -219,7 +237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8205838235789262599}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}

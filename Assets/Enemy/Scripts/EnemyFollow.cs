@@ -21,7 +21,7 @@ public class EnemyFollow : MonoBehaviour
     void Update()
     {
         Vector3 playerTargetPos = new Vector2(GameManager.instance.getPlayerRef().transform.position.x, transform.position.y);
-        directionTarget = playerTargetPos - transform.position.normalized;
+        directionTarget = playerTargetPos - transform.position;
 
         if (directionTarget.x < 0)
         {

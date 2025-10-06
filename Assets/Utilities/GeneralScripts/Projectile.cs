@@ -26,7 +26,14 @@ public class Projectile : MonoBehaviour
 
         if (other.gameObject.layer != LayerMask.NameToLayer("Ground"))
         {
-            Destroy(other.gameObject);
+            if (other.GetComponent<Health>() != null)
+            {
+                other.GetComponent<Health>().TakeDamage();
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
         }
 
     }
