@@ -1,5 +1,5 @@
 # This .gitignore file should be placed at the root of your Unity project directory
-.vscode
+#
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
 .utmp/
@@ -97,3 +97,18 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+/.vscode/
+.vsconfig
+/.upm/
+/Temp/unity.shaderdb
+
+/Packages/*
+!/Packages/manifest.json
+!/Packages/packages-lock.json
+
+/ProjectSettings/Packages/*
+!/ProjectSettings/Packages/manifest.json
+!/ProjectSettings/Packages/package-lock.json
+
+/[Gg]enerated[Aa]ssets/
