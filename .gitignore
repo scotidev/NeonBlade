@@ -99,6 +99,7 @@ InitTestScene*.unity*
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 /Assets/AI
 /Assets/AI.meta
+/[Aa]ssets/TextMesh Pro/
 
 
 /.vscode/
