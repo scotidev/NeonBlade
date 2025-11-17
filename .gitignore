@@ -116,3 +116,4 @@ InitTestScene*.unity*
 !/ProjectSettings/Packages/package-lock.json
 
 /[Gg]enerated[Aa]ssets/
+*.slnx
