@@ -14,6 +14,13 @@ public class EnemyWeaponCollision : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            PlayerInvulnerability playerInvulnerability = other.GetComponent<PlayerInvulnerability>();
+
+            if (playerInvulnerability != null)
+            {
+                playerInvulnerability.ActivateInvulnerability();
+            }
+
             if (deathTimer != null)
             {
                 deathTimer.SubtractTime(timeToSubtract);

@@ -2167,9 +2167,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2951488323329101583, guid: 9da3c65469c8b2140853fb48667e0075, type: 3}
-      propertyPath: timeToAdd
-      value: 30
+    - target: {fileID: 3077207161527702170, guid: 9da3c65469c8b2140853fb48667e0075, type: 3}
+      propertyPath: jumpTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077207161527702170, guid: 9da3c65469c8b2140853fb48667e0075, type: 3}
+      propertyPath: jumpStrength
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996448673493075701, guid: 9da3c65469c8b2140853fb48667e0075, type: 3}
+      propertyPath: iFramesDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996448673493075701, guid: 9da3c65469c8b2140853fb48667e0075, type: 3}
+      propertyPath: numberOfFlashes
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996448673493075701, guid: 9da3c65469c8b2140853fb48667e0075, type: 3}
+      propertyPath: targetLayers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996448673493075701, guid: 9da3c65469c8b2140853fb48667e0075, type: 3}
+      propertyPath: 'targetLayers.Array.data[0]'
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5996448673493075701, guid: 9da3c65469c8b2140853fb48667e0075, type: 3}
+      propertyPath: 'targetLayers.Array.data[1]'
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6554230180259159638, guid: 9da3c65469c8b2140853fb48667e0075, type: 3}
       propertyPath: m_Name
@@ -2273,6 +2297,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5492958900426293225, guid: 7c9dbfbfccf6f424a8514622ec632a76, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492958900426293225, guid: 7c9dbfbfccf6f424a8514622ec632a76, type: 3}
       propertyPath: maxSpawnRate
       value: 3
       objectReference: {fileID: 0}
@@ -2363,6 +2391,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5746786880110524849, guid: 095cbf9e25f131043a7f8b0399137aa8, type: 3}
+      propertyPath: delayAttack
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114659103579906750, guid: 095cbf9e25f131043a7f8b0399137aa8, type: 3}
       propertyPath: m_Name
       value: EnemySentry

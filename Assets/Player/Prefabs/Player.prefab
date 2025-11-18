@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 6247425844480705680}
   - component: {fileID: 3077207161527702170}
   - component: {fileID: 5092486822414377745}
+  - component: {fileID: 5996448673493075701}
   - component: {fileID: 6908335713014068053}
   m_Layer: 0
   m_Name: Player
@@ -227,6 +228,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDuration: 1
   hitboxAttack: {fileID: 8875679648698336453}
+--- !u!114 &5996448673493075701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6554230180259159638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1cb03630ffff044b6f4ba3363c257e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInvulnerability
+  iFramesDuration: 2
+  numberOfFlashes: 5
+  targetLayers: 
 --- !u!95 &6908335713014068053
 Animator:
   serializedVersion: 7
@@ -341,3 +357,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Enemy
+  timeToAdd: 30
