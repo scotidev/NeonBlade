@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645d9c5b5f667b44a852350e5c4a221f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMov: 2
+  speedMov: 1
   distanceTarget: 10
 --- !u!114 &-5746786880110524849
 MonoBehaviour:
@@ -188,9 +188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63066d10a0406ef4f9648a2ad9f3ff4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableAttack: 0
+  delayAttack: 1
   stateAttack: 0
-  delayAttack: 1.5
   spawnPoint: {fileID: 8205838235789262599}
   projectile: {fileID: 1212177999214794180, guid: a8998ead754e819429a1334ffb38d191, type: 3}
 --- !u!114 &661294616936817921
@@ -207,9 +206,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   startingHealth: 2
   currentHealth: 0
-  iFramesDuration: 0
-  numberOfFlashes: 0
-  targetLayers: 
 --- !u!95 &4129200173371863010
 Animator:
   serializedVersion: 7

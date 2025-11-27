@@ -117,3 +117,5 @@ InitTestScene*.unity*
 
 /[Gg]enerated[Aa]ssets/
 *.slnx
+Assets/imports/
+/GeneratedAssets_deleted/

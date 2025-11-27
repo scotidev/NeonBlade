@@ -4,18 +4,22 @@ public class EnemyFollow : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Vector2 directionTarget;
-    private Animator enemyAnim;
+    private Animator enemyAnimator;
+    private EnemyProjectileSpawner projectile;
 
     public float speedMov = 2f;
     public float distanceTarget = 10.0f;
-
-    private EnemyProjectileAttack projectileAttack;
+    public bool isMelee = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        enemyAnim = GetComponent<Animator>();
-        projectileAttack = GetComponent<EnemyProjectileAttack>();
+        enemyAnimator = GetComponent<Animator>();
+
+        if (!isMelee)
+        {
+            projectile = GetComponent<EnemyProjectileSpawner>();
+        }
     }
 
     void Update()
@@ -35,16 +39,16 @@ public class EnemyFollow : MonoBehaviour
         if (Vector2.Distance(transform.position, playerTargetPos) <= distanceTarget)
         {
             directionTarget = Vector2.zero;
-            enemyAnim.SetBool("isRunning", false);
+            enemyAnimator.SetBool("isRunning", false);
 
-            if (!projectileAttack.stateAttack)
+            if (!isMelee && projectile != null && !projectile.stateAttack)
             {
-                projectileAttack.StartCoroutine("timerAttack");
+                projectile.StartCoroutine("ProjectileLoop");
             }
         }
         else
         {
-            enemyAnim.SetBool("isRunning", true);
+            enemyAnimator.SetBool("isRunning", true);
         }
     }
 

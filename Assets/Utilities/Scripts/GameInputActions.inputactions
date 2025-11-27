@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "GameInputActions",
     "maps": [
         {
@@ -35,7 +36,7 @@
             ],
             "bindings": [
                 {
-                    "name": "1D Axis",
+                    "name": "Horizontal",
                     "id": "76b82e1b-9848-4473-9f38-24c59396319a",
                     "path": "1DAxis",
                     "interactions": "",
@@ -68,7 +69,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "1D Axis",
+                    "name": "Horizontal",
                     "id": "86104175-87de-4e63-ad5d-1088bfcfce31",
                     "path": "1DAxis",
                     "interactions": "",

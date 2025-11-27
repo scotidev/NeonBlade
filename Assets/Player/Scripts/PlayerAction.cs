@@ -37,7 +37,6 @@ public class PlayerAction : MonoBehaviour
         attack.Disable();
     }
 
-    // Update is called once per frame
     void Update()
     {
 
