@@ -21,9 +21,9 @@ public class PlayerMovement : MonoBehaviour
     public float jumpTime = 0.3f;
 
     [Header("Ground Check")]
-    public LayerMask groundLayer;
     [SerializeField] private Transform feetPos;
     [SerializeField] private float feetRadius;
+    public LayerMask groundLayer;
     private bool isGrounded = true;
 
     private void Awake()
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         directionMove = move.ReadValue<float>();
         FlipPlayer();
-        CheckIsGrounded();
+        isGround();
         UpdateJump();
         UpdateAnimator();
     }
@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
         jump = playerControls.Player.Jump;
         jump.Enable();
-        jump.performed += JumpPlayer;
+        jump.performed += PlayerJump;
     }
 
     private void OnDisable()
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         jump.Disable();
     }
 
-    private void JumpPlayer(InputAction.CallbackContext context)
+    private void PlayerJump(InputAction.CallbackContext context)
     {
         if (isGrounded)
         {
@@ -108,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void CheckIsGrounded()
+    private void isGround()
     {
         isGrounded = Physics2D.OverlapCircle(feetPos.position, feetRadius, groundLayer);
     }

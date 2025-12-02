@@ -37,11 +37,6 @@ public class PlayerAction : MonoBehaviour
         attack.Disable();
     }
 
-    void Update()
-    {
-
-    }
-
     void onAttack(InputAction.CallbackContext context)
     {
         if (!isAttacking)
