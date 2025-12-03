@@ -13,7 +13,7 @@ public class BladeCollision : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == targetTag)
+        if (other.CompareTag(targetTag))
         {
             Health enemyHealth = other.GetComponent<Health>();
 

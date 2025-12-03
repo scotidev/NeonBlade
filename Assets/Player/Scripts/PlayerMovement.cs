@@ -101,10 +101,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void FlipPlayer()
     {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
         if ((isFacingRight && directionMove < 0f) || (!isFacingRight && directionMove > 0f))
         {
             isFacingRight = !isFacingRight;
-            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+
+            sr.flipX = !isFacingRight;
         }
     }
 

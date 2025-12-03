@@ -14,7 +14,6 @@ public class EnemyMeleeAttack : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             enemyAnimator.SetTrigger("isAttacking");
-
         }
     }
 }
