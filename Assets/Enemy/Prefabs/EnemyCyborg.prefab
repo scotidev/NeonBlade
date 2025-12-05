@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6380178474158424654}
   - component: {fileID: 2995067832419760652}
   - component: {fileID: 4181012708531816724}
+  - component: {fileID: 8002047606813431516}
   - component: {fileID: 9073738677374133788}
   m_Layer: 7
   m_Name: EnemyCyborg
@@ -173,7 +174,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFollow
   speedMov: 2
   distanceTarget: 2
-  isMelee: 0
+  isMelee: 1
+--- !u!114 &8002047606813431516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8754961195759412466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98aa0928b2d05248b0ce2c931d0b026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  startingHealth: 2
+  currentHealth: 0
 --- !u!95 &9073738677374133788
 Animator:
   serializedVersion: 7
