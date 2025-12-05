@@ -6,6 +6,7 @@ public class EnemyFollow : MonoBehaviour
     private Vector2 directionTarget;
     private Animator enemyAnimator;
     private EnemyProjectileSpawner projectile;
+    private Transform meleeHitboxTransform;
 
     public float speedMov = 2f;
     public float distanceTarget = 10.0f;
@@ -20,6 +21,10 @@ public class EnemyFollow : MonoBehaviour
         {
             projectile = GetComponent<EnemyProjectileSpawner>();
         }
+        else
+        {
+            meleeHitboxTransform = transform.Find("MeleeHitbox");
+        }
     }
 
     void Update()
@@ -27,19 +32,21 @@ public class EnemyFollow : MonoBehaviour
         Vector3 playerTargetPos = new Vector2(GameManager.instance.getPlayerRef().transform.position.x, transform.position.y);
         directionTarget = (playerTargetPos - transform.position).normalized;
 
-        if (directionTarget.x < 0)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().flipX = false;
-        }
+        bool facingLeft = directionTarget.x < 0;
+
+        GetComponent<SpriteRenderer>().flipX = facingLeft;
+
+        FlipMeleeHitboxScale(facingLeft);
 
         if (Vector2.Distance(transform.position, playerTargetPos) <= distanceTarget)
         {
             directionTarget = Vector2.zero;
             enemyAnimator.SetBool("isRunning", false);
+
+            if (isMelee)
+            {
+                enemyAnimator.SetTrigger("Attack");
+            }
 
             if (!isMelee && projectile != null && !projectile.stateAttack)
             {
@@ -55,5 +62,17 @@ public class EnemyFollow : MonoBehaviour
     void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(directionTarget.x * speedMov, rb.linearVelocity.y);
+    }
+
+    private void FlipMeleeHitboxScale(bool shouldFlip)
+    {
+        if (isMelee && meleeHitboxTransform != null)
+        {
+            float scaleFactor = shouldFlip ? -1f : 1f;
+
+            Vector3 currentScale = meleeHitboxTransform.localScale;
+
+            meleeHitboxTransform.localScale = new Vector3(scaleFactor, currentScale.y, currentScale.z);
+        }
     }
 }

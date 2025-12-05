@@ -25,7 +25,7 @@ public class EnemyProjectileSpawner : MonoBehaviour
 
     private void ProjectileSpawner()
     {
-        enemyAnimator.SetTrigger("isAttacking");
+        enemyAnimator.SetTrigger("Attack");
         int projectileDirection = 1;
         float spawnPointX = Mathf.Abs(spawnPoint.localPosition.x);
 
