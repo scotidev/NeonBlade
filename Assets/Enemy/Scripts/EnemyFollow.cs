@@ -30,6 +30,8 @@ public class EnemyFollow : MonoBehaviour
     void Update()
     {
         Vector3 playerTargetPos = new Vector2(GameManager.instance.getPlayerRef().transform.position.x, transform.position.y);
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTargetPos);
+
         directionTarget = (playerTargetPos - transform.position).normalized;
 
         bool facingLeft = directionTarget.x < 0;
@@ -38,7 +40,7 @@ public class EnemyFollow : MonoBehaviour
 
         FlipMeleeHitboxScale(facingLeft);
 
-        if (Vector2.Distance(transform.position, playerTargetPos) <= distanceTarget)
+        if (distanceToPlayer <= distanceTarget)
         {
             directionTarget = Vector2.zero;
             enemyAnimator.SetBool("isRunning", false);
@@ -56,6 +58,11 @@ public class EnemyFollow : MonoBehaviour
         else
         {
             enemyAnimator.SetBool("isRunning", true);
+
+            if (!isMelee && projectile != null && projectile.stateAttack)
+            {
+                projectile.StopAttacking();
+            }
         }
     }
 

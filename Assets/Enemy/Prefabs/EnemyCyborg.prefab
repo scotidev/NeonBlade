@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1948159625306459845
+--- !u!1 &1607705089971511769
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 528190507595798745}
-  - component: {fileID: 839240480364933906}
-  - component: {fileID: 1883570582513788730}
+  - component: {fileID: 3806567371260917992}
+  - component: {fileID: 4757823474977691278}
+  - component: {fileID: 4275003911559949522}
   m_Layer: 7
   m_Name: MeleeHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &528190507595798745
+  m_IsActive: 0
+--- !u!4 &3806567371260917992
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1948159625306459845}
+  m_GameObject: {fileID: 1607705089971511769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.518, y: -0.008, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4340649997733743855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &839240480364933906
+--- !u!61 &4757823474977691278
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1948159625306459845}
+  m_GameObject: {fileID: 1607705089971511769}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -67,7 +67,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.26, y: 0.013030291}
+  m_Offset: {x: 0.22028065, y: 0.031161666}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -77,15 +77,15 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.1573596, y: 0.06759405}
+  m_Size: {x: 0.21558619, y: 0.086642504}
   m_EdgeRadius: 0
---- !u!114 &1883570582513788730
+--- !u!114 &4275003911559949522
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1948159625306459845}
+  m_GameObject: {fileID: 1607705089971511769}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e60d39e8dfb61894fa3932ccda636d1e, type: 3}
@@ -127,7 +127,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 528190507595798745}
+  - {fileID: 3806567371260917992}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6824800975993309508
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98aa0928b2d05248b0ce2c931d0b026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  startingHealth: 3
+  startingHealth: 10
   currentHealth: 0
 --- !u!95 &9073738677374133788
 Animator:

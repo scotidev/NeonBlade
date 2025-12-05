@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 5443088338802173866}
   - component: {fileID: 3063297809971952616}
   m_Layer: 7
-  m_Name: EnemySentry 1
+  m_Name: EnemySentry
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFollow
   speedMov: 2
-  distanceTarget: 1
+  distanceTarget: 4
   isMelee: 0
 --- !u!114 &2327563973600150218
 MonoBehaviour:
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98aa0928b2d05248b0ce2c931d0b026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  startingHealth: 2
+  startingHealth: 5
   currentHealth: 0
 --- !u!114 &5443088338802173866
 MonoBehaviour:

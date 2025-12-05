@@ -4,8 +4,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
     public GameObject playerRef;
+
+    [SerializeField] private GameObject pauseObj;
+    private bool isPaused = false;
 
     private void Awake()
     {
@@ -19,6 +21,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+                ResumeGame();
+            else
+                PauseGame();
+        }
+    }
+
     public void setPlayerRef(GameObject newPlayer)
     {
         playerRef = newPlayer;
@@ -29,24 +42,42 @@ public class GameManager : MonoBehaviour
         return playerRef;
     }
 
-    public void StartGame()
+    public void GameOver()
     {
-        Debug.Log("Game Started");
+        SceneManager.LoadScene("GameOver");
     }
 
     public void PauseGame()
     {
-        Debug.Log("Game Paused");
+        Time.timeScale = 0f;
+        pauseObj.SetActive(true);
+        isPaused = true;
     }
 
     public void ResumeGame()
     {
-        Debug.Log("Game Resumed");
+        Time.timeScale = 1f;
+        pauseObj.SetActive(false);
+        isPaused = false;
     }
 
-    public void GameOver()
+    public void BackToMenu()
     {
-        SceneManager.LoadScene("GameOver");
-        Debug.Log("Game Over");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void ExitGame()
+    {
+        Time.timeScale = 1f;
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_WEBGL
+        UnityEngine.Application.OpenURL("about:blank");
+#else
+        Application.Quit();
+#endif
     }
 }
+

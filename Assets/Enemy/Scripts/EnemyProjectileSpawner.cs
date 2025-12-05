@@ -25,6 +25,8 @@ public class EnemyProjectileSpawner : MonoBehaviour
 
     private void ProjectileSpawner()
     {
+        if (!stateAttack) return;
+
         enemyAnimator.SetTrigger("Attack");
         int projectileDirection = 1;
         float spawnPointX = Mathf.Abs(spawnPoint.localPosition.x);
@@ -45,5 +47,11 @@ public class EnemyProjectileSpawner : MonoBehaviour
         {
             StartCoroutine(ProjectileLoop());
         }
+    }
+
+    public void StopAttacking()
+    {
+        stateAttack = false;
+        StopCoroutine("ProjectileLoop");
     }
 }

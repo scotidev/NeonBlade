@@ -8,6 +8,11 @@ public class GameOverManager : MonoBehaviour
         SceneManager.LoadScene("MainScene");
     }
 
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
     public void ExitGame()
     {
 #if UNITY_EDITOR
