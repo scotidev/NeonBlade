@@ -405,8 +405,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -583, y: 45}
-  m_SizeDelta: {x: 401.5027, y: 174.765}
+  m_AnchoredPosition: {x: -545.01, y: -26.976}
+  m_SizeDelta: {x: 645.96, y: 297.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &329546788
 MonoBehaviour:
@@ -441,7 +441,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Craftpix
+  m_Text: 'Craftpix.net
+
+
+    Luiz Melo - GameDev Market
+
+
+    jhonshift - GameDev
+    Market'
 --- !u!222 &329546789
 CanvasRenderer:
   m_ObjectHideFlags: 0
