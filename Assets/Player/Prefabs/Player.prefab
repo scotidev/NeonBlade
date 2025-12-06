@@ -109,7 +109,6 @@ GameObject:
   - component: {fileID: 229412443673061834}
   - component: {fileID: 1282835444726706123}
   - component: {fileID: 1143401477971952036}
-  - component: {fileID: 8935776280073465089}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -328,18 +327,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8935776280073465089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5091199585466133957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f85313afe444398419b4fb815e851bac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAudioLink
 --- !u!1 &7097869513067514085
 GameObject:
   m_ObjectHideFlags: 0

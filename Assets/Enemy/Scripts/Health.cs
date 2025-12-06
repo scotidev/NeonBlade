@@ -7,6 +7,9 @@ public class Health : MonoBehaviour
     public int currentHealth;
     private Animator animator;
 
+    [Header("Audio Settings")]
+    public AudioClip hurtSoundClip;
+
     void Awake()
     {
         currentHealth = startingHealth;
@@ -17,6 +20,11 @@ public class Health : MonoBehaviour
     {
         currentHealth -= 1;
         animator.SetTrigger("Hurt");
+
+        if (SFXManager.Instance != null && hurtSoundClip != null)
+        {
+            SFXManager.Instance.PlaySound(hurtSoundClip);
+        }
 
         if (currentHealth <= 0)
         {

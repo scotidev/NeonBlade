@@ -208,6 +208,7 @@ MonoBehaviour:
   speedMov: 2
   distanceTarget: 4
   isMelee: 0
+  attackSoundClip: {fileID: 8300000, guid: fcb8d95e884ca584caed59aa38f73f0a, type: 3}
 --- !u!114 &2327563973600150218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   startingHealth: 5
   currentHealth: 0
+  hurtSoundClip: {fileID: 8300000, guid: 205efc522080e3b41858e25854966963, type: 3}
 --- !u!114 &5443088338802173866
 MonoBehaviour:
   m_ObjectHideFlags: 0

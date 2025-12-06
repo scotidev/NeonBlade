@@ -11,6 +11,7 @@ public class EnemyFollow : MonoBehaviour
     public float speedMov = 2f;
     public float distanceTarget = 10.0f;
     public bool isMelee = false;
+    public AudioClip attackSoundClip;
 
     void Start()
     {
@@ -48,11 +49,13 @@ public class EnemyFollow : MonoBehaviour
             if (isMelee)
             {
                 enemyAnimator.SetTrigger("Attack");
+                PlayAttackSound();
             }
 
             if (!isMelee && projectile != null && !projectile.stateAttack)
             {
                 projectile.StartCoroutine("ProjectileLoop");
+                PlayAttackSound();
             }
         }
         else
@@ -70,6 +73,15 @@ public class EnemyFollow : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(directionTarget.x * speedMov, rb.linearVelocity.y);
     }
+
+    private void PlayAttackSound()
+    {
+        if (SFXManager.Instance != null && attackSoundClip != null)
+        {
+            SFXManager.Instance.PlaySound(attackSoundClip);
+        }
+    }
+
 
     private void FlipMeleeHitboxScale(bool shouldFlip)
     {
