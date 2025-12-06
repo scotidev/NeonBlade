@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -9,10 +10,32 @@ public class DeathTimer : MonoBehaviour
     public TMP_Text timerText;
     public GameManager gameManager;
 
+    [Header("Clock Sound")]
+    public AudioSource clockAudioSource;
+    public AudioClip clockClip;
+
+    [Header("UI Feedback")]
+    public Color normalColor = Color.white;
+    public Color positiveColor = Color.green;
+    public Color negativeColor = Color.red;
+    public float flashDuration = 0.2f;
+    public float flashScale = 1.3f;
+    private float originalFontSize;
+
     void Start()
     {
         currentTime = 20;
+        timerText.color = normalColor;
+        originalFontSize = timerText.fontSize;
         UpdateTimerUI();
+
+        if (clockAudioSource != null && clockClip != null)
+        {
+            clockAudioSource.clip = clockClip;
+            clockAudioSource.loop = true;
+            clockAudioSource.volume = 0.2f;
+            clockAudioSource.Play();
+        }
     }
 
     void Update()
@@ -44,6 +67,8 @@ public class DeathTimer : MonoBehaviour
             }
 
             UpdateTimerUI();
+
+            StartCoroutine(FlashTimerColor(positiveColor));
         }
     }
 
@@ -61,9 +86,13 @@ public class DeathTimer : MonoBehaviour
             if (currentTime < 0)
             {
                 currentTime = 0;
+                isGameOver = true;
+                gameManager.GameOver();
             }
 
             UpdateTimerUI();
+
+            StartCoroutine(FlashTimerColor(negativeColor));
         }
     }
 
@@ -73,5 +102,34 @@ public class DeathTimer : MonoBehaviour
         int milliseconds = Mathf.FloorToInt((currentTime - seconds) * 100);
 
         timerText.text = $"{seconds}.<size=70%>{milliseconds:D2}</size>";
+    }
+
+    public void PauseClockSound()
+    {
+        if (clockAudioSource != null && clockAudioSource.isPlaying)
+        {
+            clockAudioSource.Pause();
+        }
+    }
+
+    public void ResumeClockSound()
+    {
+        if (clockAudioSource != null && !clockAudioSource.isPlaying && currentTime > 0)
+        {
+            clockAudioSource.UnPause();
+        }
+    }
+
+    private IEnumerator FlashTimerColor(Color flashColor)
+    {
+        StopCoroutine(nameof(FlashTimerColor));
+
+        timerText.color = flashColor;
+        timerText.fontSize = originalFontSize * flashScale;
+
+        yield return new WaitForSeconds(flashDuration);
+
+        timerText.color = normalColor;
+        timerText.fontSize = originalFontSize;
     }
 }

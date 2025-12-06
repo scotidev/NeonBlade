@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameObject playerRef;
 
+    [SerializeField] private DeathTimer deathTimer;
+
     [SerializeField] private GameObject pauseObj;
     private bool isPaused = false;
 
@@ -52,6 +54,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         pauseObj.SetActive(true);
         isPaused = true;
+
+        if (deathTimer != null)
+        {
+            deathTimer.PauseClockSound();
+        }
     }
 
     public void ResumeGame()
@@ -59,6 +66,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         pauseObj.SetActive(false);
         isPaused = false;
+
+        if (deathTimer != null)
+        {
+            deathTimer.ResumeClockSound();
+        }
     }
 
     public void BackToMenu()
