@@ -3,9 +3,22 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+
+    [SerializeField] private GameObject creditsImg;
+
     public void StartGame()
     {
         SceneManager.LoadScene("MainScene");
+    }
+
+    public void ShowCredits()
+    {
+        creditsImg.SetActive(true);
+    }
+
+    public void HideCredits()
+    {
+        creditsImg.SetActive(false);
     }
 
     public void ExitGame()

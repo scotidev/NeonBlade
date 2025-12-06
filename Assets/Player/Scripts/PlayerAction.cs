@@ -41,6 +41,11 @@ public class PlayerAction : MonoBehaviour
     {
         if (!isAttacking)
         {
+            if (SFXManager.Instance != null && SFXManager.Instance.attackClip != null)
+            {
+                SFXManager.Instance.PlaySound(SFXManager.Instance.attackClip);
+            }
+
             Vector2 posHitbox = initPosHitboxAttack;
 
             if (GetComponent<SpriteRenderer>().flipX)

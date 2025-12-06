@@ -75,6 +75,11 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = Vector2.up * jumpStrength;
             isJumping = true;
             jumpTimeCounter = jumpTime;
+
+            if (SFXManager.Instance != null && SFXManager.Instance.jumpClip != null)
+            {
+                SFXManager.Instance.PlaySound(SFXManager.Instance.jumpClip);
+            }
         }
     }
 

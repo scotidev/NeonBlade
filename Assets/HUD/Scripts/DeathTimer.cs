@@ -15,7 +15,6 @@ public class DeathTimer : MonoBehaviour
         UpdateTimerUI();
     }
 
-
     void Update()
     {
         if (!isGameOver)
@@ -52,6 +51,11 @@ public class DeathTimer : MonoBehaviour
     {
         if (!isGameOver)
         {
+            if (SFXManager.Instance != null && SFXManager.Instance.hurtClip != null)
+            {
+                SFXManager.Instance.PlaySound(SFXManager.Instance.hurtClip);
+            }
+
             currentTime -= timeToSubtract;
 
             if (currentTime < 0)
