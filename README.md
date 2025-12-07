@@ -1,44 +1,43 @@
-# NeonBlade
+# Neon Blade 🗡️⚡
 
-NeonBlade is a Unity-based game project developed as part of a college assignment. The goal of this project is to demonstrate proficiency in game development concepts, including player movement, input handling, and UI interaction.
+**Neon Blade** is a 2D action runner game with a cyberpunk theme, developed as part of a college project. Playing as a half-human, half-machine samurai with a limited lifespan, the player must face hordes of enemies to extend their survival time. The game stands out for its vibrant neon aesthetics and intense, fast-paced gameplay.
 
-## Project Purpose
+---
 
-This project was created for a university course to showcase skills in game programming, design, and teamwork. It serves as a practical exercise in applying theoretical knowledge to a real-world game development scenario.
+## Preview
 
-## Technologies Used
+![Neon Blade Screenshot](https://img.itch.zone/aW1hZ2UvNDA5OTQ2NS8yNDQzMzcwMi5wbmc=/original/jbEuYB.png)
 
-- **Unity Engine**: The main game engine used for development.
-- **C#**: Programming language for game logic and scripting.
-- **Unity Input System**: For handling player and UI input across multiple devices.
-- **Visual Studio Code**: Preferred IDE for coding and project management.
-- **Unity Packages**: Includes modules for 2D animation, UI, multiplayer, timeline, and more.
+---
 
-## Features
+## About the Project
 
-- Player movement and actions using the new Unity Input System.
-- Support for multiple input devices (keyboard, mouse, gamepad, joystick, XR).
-- Modular project structure for easy expansion and maintenance.
-- UI navigation and interaction.
+This project was created to apply game development concepts using **Unity** and **C#**. The main focus was to create a frantic combat experience featuring time management systems and procedural difficulty scaling.
 
-## Folder Structure
+---
 
-- `Assets/`: Contains game assets, scripts, scenes, and input actions.
-- `Packages/`: Unity package dependencies.
-- `.vscode/`: Editor configuration for Visual Studio Code.
-- `.gitignore` and `.gitattributes`: Version control settings.
+## Mechanics & Gameplay
 
-## Getting Started
+- **Time System:** The player has a countdown timer representing their remaining life. Killing enemies adds time; taking damage subtracts it. If the timer reaches zero, the samurai explodes (Game Over).
+- **Infinite Loop:** Every 60 seconds, the level transitions visually and difficulty increases with tougher enemies.
+- **Persistent AI:** Enemies track the player from the moment they spawn, engaging in direct combat or ranged attacks.
+- **Power-ups:** Random collectibles that provide extra time, increased damage, or temporary shields.
 
-1. Clone the repository.
-2. Open the project in Unity Hub.
-3. Install required Unity packages if prompted.
-4. Open the main scene and press Play to test the game.
+### Controls
+| Action | Key |
+| :--- | :--- |
+| **Movement** | W, A, S, D |
+| **Jump** | Spacebar |
+| **Normal Attack** | Left Click |
 
-## Authors
+---
 
-Developed by college students for academic purposes.
+## Technical Details
 
-## License
+* **Engine:** Unity
+* **Language:** C#
+* **Art/Sprites:** Aseprite
+* **Version Control:** Git
+* **IDE:** Visual Studio
 
-This project is for educational use
+---
