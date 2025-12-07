@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98aa0928b2d05248b0ce2c931d0b026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  startingHealth: 4
+  startingHealth: 3
   currentHealth: 0
   hurtSoundClip: {fileID: 8300000, guid: 205efc522080e3b41858e25854966963, type: 3}
 --- !u!114 &5443088338802173866

@@ -24,7 +24,7 @@ public class DeathTimer : MonoBehaviour
 
     void Start()
     {
-        currentTime = 20;
+        currentTime = 30;
         timerText.color = normalColor;
         originalFontSize = timerText.fontSize;
         UpdateTimerUI();
